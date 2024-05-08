@@ -22,6 +22,7 @@ body {
 
 .slider {
 	height: 100vh;
+	box-shadow: inset 0px 50px 50px black, inset 0px -50px 50px black; /*тень сверху, (-50px) снизу*/
 }
  
 .slider .slide { /*центровка слайда*/
@@ -30,18 +31,25 @@ body {
 	justify-content: center;
 }
 
-.slide__content {
+.slide__content { /*центровка текста*/
 	text-align: center;
+	opacity: 0;
+	transition: opacity .4s ease; /*плавное затухание уходящего слайда*/
 }
 
-.slide__content h2 {
+.swiper-slide-active .slide__content {
+	opacity: 1;
+}
+
+.slide__content h2 { /*стилизация заголовка*/
 	font-size: calc(var(--index) * 4);
 	letter-spacing: calc(var(--index) * 1.5);
 	margin-bottom: calc(var(--index) * 2.4);
 	position: relative;
+	text-transform: uppercase;
 }
 
-.slide__content h2::after {
+.slide__content h2::after { 
 	content: '';
 	height: 1px;
 	width: 20%;
@@ -51,7 +59,7 @@ body {
 	bottom: calc(var(--index) * -1);
 }
 
-.slide__content p {
+.slide__content p { /*стилизация текста*/
 	font-size: calc(var(--index) * .95);
 	text-transform: uppercase;
 	color: rgba(255, 255, 255, .8);
@@ -59,7 +67,7 @@ body {
 	margin-bottom: calc(var(--index) * 2.5)
 }
 
-button {
+button { /*стилизация кнопки*/
 	--button-color: rgba(255, 255, 255, .9);
 	padding: 9px 40px;
 	font-size: 15.25px;
@@ -80,9 +88,14 @@ button {
 
 .video-background { /*парам фонового видео*/
 	position: fixed;
-	width: 95%;
-	height: 95%;
+	width: 100%;
+	height: 100%;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	opacity: .75;
+	transition: opacity 1.6s ease-out; /*время затемнения видео*/
+}
+.video-background.change { /*затемнение видео при слайде*/
+ opacity: 1;
 }
