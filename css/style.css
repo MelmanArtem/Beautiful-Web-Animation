@@ -5,7 +5,7 @@
 }
 
 :root {
-	--index: calc(1vw + 1vh);
+	--index: calc(1vw + 1vh); /*перем для плавного изменениния размеров и отступов*/
 	--swiper-theme-color: #4b4d53; /*общ цвет темы свайпера*/
 	--swiper-pagination-color: #d4dcee99; /*цвет активного элемента пагинации*/
 	--swiper-pagination-bullet-inactive-color: #d6d2f94a; /*цвет неактивного элемента пагинации*/
@@ -36,4 +36,44 @@ body {
 
 .slide__content h2 {
 	font-size: calc(var(--index) * 4);
+	letter-spacing: calc(var(--index) * 1.5);
+	margin-bottom: calc(var(--index) * 2.4);
+	position: relative;
+}
+
+.slide__content h2::after {
+	content: '';
+	height: 1px;
+	width: 20%;
+	background-color: rgba(255, 255, 255, .35); /*255 три раза означают белый цвет. значение через точку - прозрачность */
+	position: absolute;
+	left: 40%; /*(100-16)/2=42*/
+	bottom: calc(var(--index) * -1);
+}
+
+.slide__content p {
+	font-size: calc(var(--index) * .95);
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, .8);
+	letter-spacing: calc(var(--index) * .25);
+	margin-bottom: calc(var(--index) * 2.5)
+}
+
+button {
+	--button-color: rgba(255, 255, 255, .9);
+	padding: 9px 40px;
+	font-size: 15.25px;
+	border-radius: 10em;
+	background-color: transparent;
+	border: 2px solid var(--button-color);
+	color: var(--button-color);
+	text-transform: uppercase;
+	letter-spacing: .2rem;
+}
+
+.slider-navigation > * {
+	border: 1.5px solid var(--swiper-theme-color);
+	border-radius: 10em;
+	width: 55px;
+	height: 55px;
 }
