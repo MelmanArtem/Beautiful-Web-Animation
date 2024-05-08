@@ -5,10 +5,35 @@
 }
 
 :root {
-
+	--index: calc(1vw + 1vh);
+	--swiper-theme-color: #4b4d53; /*общ цвет темы свайпера*/
+	--swiper-pagination-color: #d4dcee99; /*цвет активного элемента пагинации*/
+	--swiper-pagination-bullet-inactive-color: #d6d2f94a; /*цвет неактивного элемента пагинации*/
+	--swiper-pagination-bullet-inactive-opacity: 1; /*прозрачность неактивного элемента пагинации*/
+	--swiper-navigation-size: 32px; /*размер стрелок пагинации*/
+	--swiper-navigation-sides-offset: 35px; /* боковой отступ пагинации*/
+	--swiper-pagination-bottom: 22px; /*нижний отступ пагинации*/
 }
 
 body {
 	background-color: black;
 	color: white;
+}
+
+.slider {
+	height: 100vh;
+}
+ 
+.slider .slide { /*центровка слайда*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.slide__content {
+	text-align: center;
+}
+
+.slide__content h2 {
+	font-size: calc(var(--index) * 4);
 }
