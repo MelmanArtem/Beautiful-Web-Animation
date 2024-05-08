@@ -71,9 +71,18 @@ button {
 	letter-spacing: .2rem;
 }
 
-.slider-navigation > * {
+.slider-navigation > * { /*стилизация кружочка вокруг стрелочки*/
 	border: 1.5px solid var(--swiper-theme-color);
 	border-radius: 10em;
 	width: 55px;
 	height: 55px;
+}
+
+.video-background { /*парам фонового видео*/
+	position: fixed;
+	width: 95%;
+	height: 95%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
